@@ -3,11 +3,19 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import store from "./../store/UserStore";
 
-function Modal({ taskCreated, setTaskCreated }) {
+function Modal({
+  taskCreated,
+  setTaskCreated,
+}: {
+  taskCreated: any;
+  setTaskCreated: any;
+}) {
   const [title, setTitle] = useState();
   const [des, setDes] = useState();
   const [status, setStatus] = useState("Pending");
-  const addBtnClick = async (e) => {
+
+  //add task
+  const addBtnClick = async (e: any) => {
     e.preventDefault();
     const collRef = doc(db, "assignment", store.userId);
     const docSnap = await getDoc(collRef);

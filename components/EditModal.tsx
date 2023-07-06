@@ -10,17 +10,27 @@ import {
 import React, { useState } from "react";
 import store from "./../store/UserStore";
 
-function EditModal({ data, docu, setModal, handleDelete }) {
+function EditModal({
+  data,
+  docu,
+  setModal,
+  handleDelete,
+}: {
+  data: any;
+  docu: any;
+  setModal: any;
+  handleDelete: any;
+}) {
   const [title, setTitle] = useState(docu.title);
   const [des, setDes] = useState(docu.des);
   const [status, setStatus] = useState(docu.status);
 
   //update task
 
-  const updateArray = async (document) => {
+  const updateArray = async (document: any) => {
     const washingtonRef = doc(db, "assignment", store.userId);
 
-    const findIndex = data.findIndex((a) => a.title === document.title);
+    const findIndex = data.findIndex((a: any) => a.title === document.title);
     data[findIndex].title = title;
     data[findIndex].des = des;
     data[findIndex].status = status;
