@@ -24,7 +24,7 @@ function Todos() {
     <div className="overflow-x-auto py-20">
       <div className="flex w-100 h-fit-content flex-wrap">
         {data ? (
-          data.map((doc) => <TodoComponent docu={doc} data={data} />)
+          data.map((doc: any) => <TodoComponent docu={doc} data={data} />)
         ) : (
           <div className="w-100 flex flex-col items-center justify-center">
             <h1>No Tasks Found</h1>
