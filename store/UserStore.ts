@@ -14,10 +14,7 @@ const UserModel = types
     userImage: types.string,
   })
   .actions((self) => ({
-    setTodos(value) {
-      self.userTodos = value;
-    },
-    setUser(user) {
+    setUser(user: any) {
       localStorage.setItem("user", JSON.stringify(user));
       self.isUser = true;
       (self.userId = user.uid),
@@ -37,9 +34,8 @@ const UserModel = types
 
 let user: any;
 if (localStorage.getItem("user")) {
-  const userInfoFromStorage = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user"))
-    : null;
+  const userInfoFromStorage = JSON.parse(localStorage.getItem("user") || "{}");
+
   user = UserModel.create({
     isUser: true,
     userId: userInfoFromStorage.uid,

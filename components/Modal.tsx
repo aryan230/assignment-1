@@ -10,8 +10,8 @@ function Modal({
   taskCreated: any;
   setTaskCreated: any;
 }) {
-  const [title, setTitle] = useState();
-  const [des, setDes] = useState();
+  const [title, setTitle] = useState("");
+  const [des, setDes] = useState("");
   const [status, setStatus] = useState("Pending");
 
   //add task
