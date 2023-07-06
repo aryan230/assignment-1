@@ -5,15 +5,15 @@ import { doc } from "firebase/firestore";
 import { db } from "@/firebase";
 import store from "./../store/UserStore";
 
-function TodoComponent({ docu, data }) {
+function TodoComponent({ docu, data }: { docu: any; data: any }) {
   const [showModal, setshowModal] = useState(false);
   const [docData, setDocData] = useState();
 
   //delete task
-  const handleDelete = async (document) => {
+  const handleDelete = async (document: any) => {
     const washingtonRef = doc(db, "assignment", store.userId);
 
-    const findIndex = data.findIndex((a) => a.title === document.title);
+    const findIndex = data.findIndex((a: any) => a.title === document.title);
     findIndex !== -1 && data.splice(findIndex, 1);
 
     await updateDoc(washingtonRef, {
@@ -22,11 +22,16 @@ function TodoComponent({ docu, data }) {
       setshowModal(false);
     });
   };
-  
+
   return (
     <div className="card w-96 bg-base-100 shadow-xl m-2">
       {showModal && (
-        <EditModal data={data} docu={docData} setModal={setshowModal} />
+        <EditModal
+          data={data}
+          docu={docData}
+          setModal={setshowModal}
+          handleDelete={handleDelete}
+        />
       )}
       <div className="card-body">
         <h2 className="card-title">{docu.title}</h2>

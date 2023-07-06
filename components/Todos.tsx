@@ -8,13 +8,14 @@ import { doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 
 function Todos() {
-  const [data, setData] = useState();
+  const [data, setData] = useState<any[]>([]);
   //Fetch data from Firestore
   useEffect(() => {
     if (store.isUser) {
       const unsub = onSnapshot(doc(db, "assignment", store.userId), (doc) => {
         if (doc.data()) {
-          setData(doc.data().data);
+          const dataValue = doc.data()?.data;
+          setData(dataValue);
         }
       });
     }
@@ -24,7 +25,7 @@ function Todos() {
     <div className="overflow-x-auto py-20">
       <div className="flex w-100 h-fit-content flex-wrap">
         {data ? (
-          data.map((doc) => (
+          data.map((doc: any) => (
             <TodoComponent key={doc.title} docu={doc} data={data} />
           ))
         ) : (

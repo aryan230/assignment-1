@@ -34,7 +34,8 @@ function Navbar() {
             <li>
               <a
                 onClick={() => {
-                  window.my_modal_2.showModal();
+                  let modalValue: any = window;
+                  modalValue.my_modal_2.showModal();
                   setTaskCreated(false);
                 }}
               >
