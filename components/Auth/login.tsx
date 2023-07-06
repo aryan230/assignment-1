@@ -9,6 +9,8 @@ import { observer } from "mobx-react-lite";
 import Loader from "../Loader";
 function Login() {
   const router = useRouter();
+
+  //login user
   const handleLogin = async () => {
     signInWithPopup(auth, provider)
       .then((data) => {

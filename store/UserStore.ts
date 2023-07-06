@@ -35,8 +35,7 @@ const UserModel = types
     },
   }));
 
-let user;
-
+let user: object;
 if (localStorage.getItem("user")) {
   const userInfoFromStorage = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
