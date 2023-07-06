@@ -1,11 +1,12 @@
-import Hero from "@/components/Hero";
 import Todos from "@/components/Todos";
-import { useState } from "react";
+import React from "react";
 
-export default function Home() {
+function page() {
   return (
     <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <Hero />
+      <Todos />
     </div>
   );
 }
+
+export default page;
