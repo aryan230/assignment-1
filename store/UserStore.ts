@@ -36,7 +36,8 @@ let user: any;
 if (typeof window !== "undefined") {
   if (localStorage.getItem("user")) {
     const userInfoFromStorage = JSON.parse(
-      localStorage.getItem("user") || "{}"
+      localStorage.getItem("user") ||
+        '{isUser: false,userId: "0",userName: "0",userImage: "0",}'
     );
 
     user = UserModel.create({
