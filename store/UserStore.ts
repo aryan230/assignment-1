@@ -32,28 +32,30 @@ const UserModel = types
     },
   }));
 
-let user: any;
-if (typeof window !== "undefined") {
-  if (localStorage.getItem("user")) {
-    const userInfoFromStorage = JSON.parse(
-      localStorage.getItem("user") ||
-        '{isUser: false,userId: "0",userName: "0",userImage: "0",}'
-    );
+// let user: any;
+// if (typeof window !== "undefined") {
+//   if (localStorage.getItem("user")) {
+//     const userInfoFromStorage = JSON.parse(
+//       localStorage.getItem("user") ||
+//         '{isUser: false,userId: "0",userName: "0",userImage: "0",}'
+//     );
 
-    user = UserModel.create({
-      isUser: true,
-      userId: userInfoFromStorage.uid,
-      userName: userInfoFromStorage.displayName,
-      userImage: userInfoFromStorage.photoURL,
-    });
-  } else {
-    user = UserModel.create({
-      isUser: false,
-      userId: "0",
-      userName: "0",
-      userImage: "0",
-    });
-  }
-}
+//     user = UserModel.create({
+//       isUser: true,
+//       userId: userInfoFromStorage.uid,
+//       userName: userInfoFromStorage.displayName,
+//       userImage: userInfoFromStorage.photoURL,
+//     });
+//   } else {
+
+//   }
+// }
+
+const user = UserModel.create({
+  isUser: false,
+  userId: "0",
+  userName: "0",
+  userImage: "0",
+});
 
 export default user;
